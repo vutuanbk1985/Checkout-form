@@ -43,6 +43,74 @@ btn.addEventListener('click', () => {
     text.innerHTML = "Hide order summary";
 })
 
+
+//submit and close button event
+const receiptPopup = document.getElementById("receipt-popup");
+const continueBtn = document.getElementById('continue-btn');
+const closebtn = document.getElementById('close-btn');
+const outline = document.getElementById('outline');
+
+
+document.getElementById('total-payment').innerHTML = total.innerHTML;
+
+const d = new Date();
+d.setFullYear(2023);
+document.getElementById('payment-time').innerHTML = d;
+
+// form validate
+let lastName, address, city, postalCode, phoneEmail;
+function testInput() {
+  
+
+  if (lastName === "" || address === "" || city === "" || postalCode === "" || phoneEmail === "") {
+    alert("Required information must be filled out");
+    document.getElementById('phone_error').classList.remove('hidden');
+    document.getElementById('last_name_error').classList.remove('hidden');
+    document.getElementById('address_error').classList.remove('hidden');
+    document.getElementById('city_error').classList.remove('hidden');
+    document.getElementById('postal_error').classList.remove('hidden');
+    return false;
+  } else {
+    document.getElementById('phone_error').classList.add('hidden');
+    document.getElementById('last_name_error').classList.add('hidden');
+    document.getElementById('address_error').classList.add('hidden');
+    document.getElementById('city_error').classList.add('hidden');
+    document.getElementById('postal_error').classList.add('hidden');
+    return true;
+  }
+}
+
+
+continueBtn.onclick = (event) => {
+  lastName = document.forms["info-form"]["last-name"].value;
+  address = document.forms["info-form"]["address"].value;
+  city = document.forms["info-form"]["city"].value;
+  postalCode = document.forms["info-form"]["postal"].value;
+  phoneEmail = document.getElementById('myform_phone').value;
+  // alert(lastName);
+  // alert(address);
+  // alert(city);
+  // alert(postalCode);
+  if (testInput()) {
+    outline.classList.add('passive');
+    receiptPopup.classList.add('active');
+    const senderName = `${document.getElementById('first-name').value} ${document.getElementById('last-name').value}`;
+    document.getElementById('sender-name').innerHTML = senderName;
+
+    event.preventDefault();
+  } else event.preventDefault();
+
+}
+
+closebtn.addEventListener('click', () => {
+  // // togglePopup();
+  // receiptPopup.remove();
+  document.getElementById('receipt-popup').classList.remove('active');
+  outline.classList.remove('passive');
+  // popup.classList.toggle('visibility-toggle');
+})
+
+
 //validate phone number/email
 function validatePhoneNumber(input_str) {
   const re = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
@@ -68,3 +136,4 @@ function validateForm(event) {
 
 }
 document.getElementById('myform').addEventListener('change', validateForm);
+

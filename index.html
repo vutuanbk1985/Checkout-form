@@ -10,12 +10,12 @@
 </head>
 
 <body>
-    <div class="outline">
+    <div class="outline" id="outline">
         <div class="left-panel">
             <h1>Escoot Theme</h1>
-            
+
             <div class="price-tab">
-                <button  type="button" class="price-show-btn" id="price-show-btn">
+                <button type="button" class="price-show-btn" id="price-show-btn">
                     <i class="fa-solid fa-cart-plus"></i>
                     <span id="text-order-summary">Show order summary</span>
                     <i class="fa-solid fa-chevron-down"></i>
@@ -61,14 +61,15 @@
                 <h2>Contact information</h2>
                 <span style="font-size: medium;">Already have an account? <a href="">Log in</a></span>
             </div>
-            <form id="myform">
-                <input class="input email" type="email" placeholder="Emal or mobile phone number" required id="myform_phone"><br>
+            <form id="myform" name="myform">
+                <input class="input email" type="email" name="email" placeholder="Emal or mobile phone number" required
+                    id="myform_phone"><br>
                 <div id="phone_error" class="error hidden"> Please enter a valid phone number or email </div>
-  
+
                 <input class="checkbox" type="checkbox"><span>Email me with news and offers</span>
             </form>
             <h2>Shipping address</h2>
-            <form action="">
+            <form action="" name="info-form">
                 <select class="select" id="select">
 
 
@@ -315,17 +316,21 @@
                     <option value="Zimbabwe">Zimbabwe</option>
 
                 </select> <br>
-                <input class="input first-name" type="text" placeholder="First-name (Optional)">
-                <input class="input" type="text" placeholder="Last name" required> <br>
-                <input class="address" type="text" placeholder="Address" required>
-                <input class="address-type" type="text" placeholder="Apartment, suite, etc. (Optional)"><br>
-                <input class="input city" type="text" placeholder="City" required>
-                <input class="input postal" type="text" placeholder="Postal code" required> <br>
+                <input id="first-name" class="input first-name" type="text" name="first-name" placeholder="First-name (Optional)">
+                <input id="last-name" class="input" type="text" name="last-name" placeholder="Last name (required)" required> <br>
+                    <div id="last_name_error" class="error hidden"> Please enter your last name </div>
+                <input id="address" class="address" type="text" name="address" placeholder="Address (required)" required>
+                    <div id="address_error" class="error hidden"> Please enter a valid address </div>
+                <input class="address-type" type="text" name="address-type" placeholder="Apartment, suite, etc. (Optional)"><br>
+                <input id="city" class="input city" type="text" name="city" placeholder="City (required)" required>
+                    <div id="city_error" class="error hidden"> Please enter a valid city </div>
+                <input id="postal" class="input postal" type="text" name="postal" placeholder="Postal code (required)" required>
+                    <div id="postal_error" class="error hidden"> Please enter a valid postal code </div> <br>
                 <input class="checkbox" type="checkbox"><span>Save this information for next time</span><br>
                 <div class="btn">
                     <button type="button" class="return-btn">
                         < Return to cart</button>
-                            <button type="submit" class="continue-btn">Continue to shipping</button>
+                            <button type="submit" class="continue-btn" id="continue-btn">Continue to shipping</button>
                 </div>
             </form>
 
@@ -356,9 +361,50 @@
                 <span><b>Total</b></span><span id="total"></span>
             </div>
         </div>
-        <script type="text/javascript" src="./app.js"></script>
-        <script src="https://kit.fontawesome.com/604c83bf82.js" crossorigin="anonymous"></script>
+
     </div>
+
+    <!-- Tao popup cho checkout -->
+    <div class="outline-receipt" id="outline-receipt">
+        <div class="receipt-popup" id="receipt-popup">
+            <div><i class="fa-solid fa-circle-check fa-2xl" style="color: #03ab0e;"></i></div>
+            <button class="close-btn" id="close-btn"><i class="fa-solid fa-circle-xmark fa-lg"
+                    style="color: #f20202;"></i></button>
+            <div class="receipt-popup-top">
+                <h2>Payment Success!</h2><br>
+                <h4>Your payment has been successfully done.</h4>
+            </div>
+            <div class="receipt-popup-top-2">
+                <h3>Total Payment</h4>
+                <h2 id="total-payment"></h2>
+            </div>
+            <div class="receipt-popup-detail">
+                <div class="receipt-popup-detail-1">
+                    <p>Ref number</p>
+                    <p><strong>0011885164984</strong></p>
+                </div>
+                <div class="receipt-popup-detail-2">
+                    <p>Payment Time</p>
+                    <p id="payment-time"><strong>0011885164984</strong></p>
+                </div>
+                <div class="receipt-popup-detail-3">
+                    <p>Payment Method</p>
+                    <p><strong>Bank Transfer</strong></p>
+                </div>
+                <div class="receipt-popup-detail-4">
+                    <p>Sender Name</p>
+                    <strong></strong><p id="sender-name"></p></strong>
+                </div>
+            </div>
+            <div class="get-receipt">
+                <button type="submit" class="get-receipt-btn" id="get-receipt-btn"><i
+                        class="fa-solid fa-download"></i>Get PDF Receipt</button>
+            </div>
+
+        </div>
+    </div>
+    <script type="text/javascript" src="./app.js"></script>
+    <script src="https://kit.fontawesome.com/604c83bf82.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

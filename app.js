@@ -58,12 +58,12 @@ d.setFullYear(2023);
 document.getElementById('payment-time').innerHTML = d;
 
 // form validate
-let lastName, address, city, postalCode, phoneEmail;
+let lastName, address, city, postalCode, phoneEmail, firstName;
 function testInput() {
-  
 
-  if (lastName === "" || address === "" || city === "" || postalCode === "" || phoneEmail === "") {
-    alert("Required information must be filled out");
+
+  if (lastName === "" || address === "" || city === "" || postalCode === "" || isNaN(postalCode) || phoneEmail === "") {
+    // alert("Required information must be filled out");
     document.getElementById('phone_error').classList.remove('hidden');
     document.getElementById('last_name_error').classList.remove('hidden');
     document.getElementById('address_error').classList.remove('hidden');
@@ -87,10 +87,21 @@ continueBtn.onclick = (event) => {
   city = document.forms["info-form"]["city"].value;
   postalCode = document.forms["info-form"]["postal"].value;
   phoneEmail = document.getElementById('myform_phone').value;
-  // alert(lastName);
-  // alert(address);
-  // alert(city);
-  // alert(postalCode);
+  firstName = document.getElementById("first-name").value;
+  const user = {
+    firstName: firstName,
+    lastName: lastName,
+    address: address,
+    city: city,
+    postal: postalCode,
+    userID: phoneEmail,
+
+  };
+
+  myJSON = JSON.stringify(user);
+  if (document.getElementById("checkbox").checked) {
+    localStorage.setItem("User", myJSON)
+  };
   if (testInput()) {
     outline.classList.add('passive');
     receiptPopup.classList.add('active');
@@ -130,7 +141,7 @@ function validateForm(event) {
   else {
 
     document.getElementById('phone_error').classList.add('hidden');
-    alert("validation success")
+    // alert("validation success")
   }
   event.preventDefault();
 

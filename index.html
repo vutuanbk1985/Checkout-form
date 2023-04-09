@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./CSS/main.css">
     <title>Escoot</title>
 </head>
 
@@ -69,7 +69,7 @@
                 <input class="checkbox" type="checkbox"><span>Email me with news and offers</span>
             </form>
             <h2>Shipping address</h2>
-            <form action="" name="info-form">
+            <form action="" name="info-form" id="info-form">
                 <select class="select" id="select">
 
 
@@ -326,7 +326,7 @@
                     <div id="city_error" class="error hidden"> Please enter a valid city </div>
                 <input id="postal" class="input postal" type="text" name="postal" placeholder="Postal code (required)" required>
                     <div id="postal_error" class="error hidden"> Please enter a valid postal code </div> <br>
-                <input class="checkbox" type="checkbox"><span>Save this information for next time</span><br>
+                <input id="checkbox" class="checkbox" type="checkbox"><span>Save this information for next time</span><br>
                 <div class="btn">
                     <button type="button" class="return-btn">
                         < Return to cart</button>
@@ -385,7 +385,7 @@
                 </div>
                 <div class="receipt-popup-detail-2">
                     <p>Payment Time</p>
-                    <p id="payment-time"><strong>0011885164984</strong></p>
+                    <strong><p id="payment-time"></p></strong>
                 </div>
                 <div class="receipt-popup-detail-3">
                     <p>Payment Method</p>
@@ -393,7 +393,7 @@
                 </div>
                 <div class="receipt-popup-detail-4">
                     <p>Sender Name</p>
-                    <strong></strong><p id="sender-name"></p></strong>
+                    <strong><p id="sender-name"></p></strong>
                 </div>
             </div>
             <div class="get-receipt">
@@ -403,7 +403,7 @@
 
         </div>
     </div>
-    <script type="text/javascript" src="./app.js"></script>
+    <script type="module" src="./JS/main.js"></script>
     <script src="https://kit.fontawesome.com/604c83bf82.js" crossorigin="anonymous"></script>
 </body>
 

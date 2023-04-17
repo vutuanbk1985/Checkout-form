@@ -1,32 +1,32 @@
 const price = document.getElementById("price");
-price.innerHTML = 1500.00;
+price.innerHTML = '$1500.00';
 
 const subTotal = document.getElementById("subtotal");
-subTotal.innerHTML = 1500.00;
+subTotal.innerHTML = '$1500.00';
 
 const shipping = document.getElementById("shipping");
-shipping.innerHTML = 200.00;
+shipping.innerHTML = '$200.00';
 
 const total = document.getElementById("total");
-total.innerHTML = 1700;
+total.innerHTML = '$1700.00';
 
 const priceTab = document.getElementById("price-tab");  //Small screen display price tab
-priceTab.innerHTML = 1700;
+priceTab.innerHTML = '$1700.00';
 
 
 
 //price-tab small screen
 const priceSmall = document.getElementById("price-small");
-priceSmall.innerHTML = 200.00;
+priceSmall.innerHTML = '$200.00';
 
 const subTotalSmall = document.getElementById("subtotal-small");
-subTotalSmall.innerHTML = 200.00;
+subTotalSmall.innerHTML = '$200.00';
 
 const shippingSmall = document.getElementById("shipping-small");
-shippingSmall.innerHTML = 1500.00;
+shippingSmall.innerHTML = '$1500.00';
 
 const totalSmall = document.getElementById("total-small");
-totalSmall.innerHTML = 1700;
+totalSmall.innerHTML = '$1700.00';
 
 //show price tab when click button in small screen
 const receiptTab = document.getElementById("receipt-small");
